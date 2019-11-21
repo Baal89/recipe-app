@@ -1,19 +1,41 @@
-{% extends 'base.html' %} {% block content %} {{recipe.recipe_name}} {{recipe.recipe_difficulty}} {{recipe.recipe_price}} {{recipe.recipe_ingredients[0]}} {{recipe.recipe_ingredients[1]}} {{recipe.recipe_ingredients[2]}} {{recipe.recipe_ingredients[3]}}
-{{recipe.recipe_ingredients[4]}} {{recipe.recipe_ingredients[5]}} {{recipe.recipe_doses}} {{recipe.recipe_tools[0]}} {{recipe.recipe_tools[1]}} {{recipe.recipe_preparation_steps}} 
+{% extends 'base.html' %} {% block content %}
+
 
 <div class="container">
     {% for recipe in recipes %}
+    <h2>{{recipe.recipe_name}} - {{recipe.recipe_difficulty}}</h2>
+    <p class="price">{{recipe.recipe_price}}</p>
     <div class="row">
         <div class=col-md-8>
-            <img src="">
-            <p>
-
-            </p>
+            <img class="img-fluid" src="https://dpv87w1mllzh1.cloudfront.net/alitalia_discover/attachments/data/000/000/334/original/roma-how-to-carbonara-1920x1080.jpg?1519055920">
         </div>
-    </div class="col-12">
-    <p>
-
-    </p>
+        <div class="col-md-4">
+            <p>
+                ingredients for: {{recipe.recipe_doses}}<br>
+            </p>
+            <ul>
+                <li><strong>{{recipe.recipe_ingredients[0]}}</strong></li><br>
+                <li><strong>{{recipe.recipe_ingredients[1]}}</strong></li><br>
+                <li><strong>{{recipe.recipe_ingredients[2]}}</strong></li><br>
+                <li><strong>{{recipe.recipe_ingredients[3]}}</strong></li><br>
+                <li><strong>{{recipe.recipe_ingredients[4]}}</strong></li><br>
+                <li><strong>{{recipe.recipe_ingredients[5]}}</strong></li><br>
+            </ul>
+        </div>
+    </div>
+    <div class="col-12">
+        <h3>Tools required</h3>
+        <ul>
+            <li><strong>{{recipe.recipe_tools[0]}}</strong></li><br>
+            <li><strong>{{recipe.recipe_tools[1]}}</strong></li><br>
+        </ul>
+    </div>
+    <div class="col-12">
+        <h3>Preparation</h3>
+        <p>
+            {{recipe.recipe_preparation_steps}}
+        </p>
+    </div>
 </div>
 </div>
 {% endfor %}
