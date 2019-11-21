@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %} {{recipe.recipe_name}} {{recipe.recipe_difficulty}} {{recipe.recipe_price}} {{recipe.recipe_ingredients[0]}} {{recipe.recipe_ingredients[1]}} {{recipe.recipe_ingredients[2]}} {{recipe.recipe_ingredients[3]}}
+{{recipe.recipe_ingredients[4]}} {{recipe.recipe_ingredients[5]}} {{recipe.recipe_doses}} {{recipe.recipe_tools[0]}} {{recipe.recipe_tools[1]}} {{recipe.recipe_preparation_steps}} 
+
+<div class="container">
+    {% for recipe in recipes %}
+    <div class="row">
+        <div class=col-md-8>
+            <img src="">
+            <p>
+
+            </p>
+        </div>
+    </div class="col-12">
+    <p>
+
+    </p>
+</div>
+</div>
+{% endfor %}
+</div>
+
+
+{% endblock %}
