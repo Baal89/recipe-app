@@ -1,17 +1,18 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+ 
+{% block content %}
 
-
+ {% for recipe in recipes %}
 <div class="container">
-    {% for recipe in recipes %}
     <h2>{{recipe.recipe_name}} - {{recipe.recipe_difficulty}}</h2>
-    <p class="price">{{recipe.recipe_price}}</p>
+    <p class="price">Price: {{recipe.recipe_price}}<br> Preparation time:   {{recipe.recipe_cooking_time}}</p>
     <div class="row">
         <div class=col-md-8>
-            <img class="img-fluid" src="https://dpv87w1mllzh1.cloudfront.net/alitalia_discover/attachments/data/000/000/334/original/roma-how-to-carbonara-1920x1080.jpg?1519055920">
+           <img class="img-fluid" src="{{recipe.recipe_img}}">
         </div>
         <div class="col-md-4">
             <p>
-                ingredients for: {{recipe.recipe_doses}}<br>
+                ingredients for: {{recipe.recipe_doses}}
             </p>
             <ul>
                 <li><strong>{{recipe.recipe_ingredients[0]}}</strong></li><br>
@@ -31,7 +32,7 @@
         </ul>
     </div>
     <div class="col-12">
-        <h3>Preparation</h3>
+        <h3>Preparation Steps</h3>
         <p>
             {{recipe.recipe_preparation_steps}}
         </p>

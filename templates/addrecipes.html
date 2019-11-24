@@ -1,0 +1,71 @@
+ {% extends 'base.html' %} {% block content %}
+
+
+<!-- bootstrap form-->
+<div class="container">
+    <h3> add a new recipe!</h3>
+    <form action="{{ url_for('insert_recipe') }}" method="POST" class="col-12">
+        <div class="row">
+            <div class="form-group col-12">
+                <label>Recipe name</label>
+                <input type="text" class="form-control" name="recipe_name" id="recipe_name" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-12">
+                <label for="exampleFormControlSelect1">Select a category</label>
+                <select class="form-control" id="category" name="category_name">
+                     <option disabled selected>Choose a category</option>
+                     {% for cat in categories %}
+                         <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+                     {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-12">
+                <label>Recipe img url</label>
+                <input type="text" class="form-control" name="recipe_img" id="recipe_img" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4 col-12">
+                <label>Recipe difficulty</label>
+                <input type="text" class="form-control" name="recipe_difficulty" id="recipe_difficulty" required>
+            </div>
+            <div class="form-group col-md-4 col-12">
+                <label>Recipe cooking time </label>
+                <input type="text" class="form-control" name="recipe_cooking_time" id="recipe_cooking_time" required>
+            </div>
+            <div class="form-group col-md-4 col-12">
+                <label>Recipe price</label>
+                <input type="text" class="form-control" name="recipe_price" id="recipe_price" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-12">
+                <label>Recipe ingredients</label>
+                <textarea type="textarea" class="form-control" name="recipe_ingredients" id="recipe_ingredients" required></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6 col-12">
+                <label>Recipe tools</label>
+                <input type="text" class="form-control" name="recipe_tools" id="recipe_tools" required>
+            </div>
+            <div class="form-group col-md-6 col-12">
+                <label>Recipe doses</label>
+                <input type="text" class="form-control" name="recipe_doses" id="recipe_doses" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-12">
+                <label>Preparation steps</label>
+                <textarea type="textarea" class="form-control" name="recipe_preparation_steps" id="recipe_preparation_steps" required></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}
+ 
