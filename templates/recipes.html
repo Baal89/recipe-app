@@ -1,41 +1,59 @@
 {% extends 'base.html' %} 
- 
+
 {% block content %}
 
- {% for recipe in recipes %}
+<div class="container">
+    <div class="row offset-sm-3">
+        <div class="col-3">
+           <a href="{{ url_for('add_recipe') }}" class="btn btn-primary btn-lg active " role="button" aria-pressed="true"><i class="fas fa-plus"></i>Add recipes</a>
+        </div>
+        <div class="col-3">
+            <a href="#" class="btn btn-warning btn-lg active" role="button" aria-pressed="true"><i class="fas fa-edit"></i>Update recipes</a>
+        </div>
+        <div class="col-3">
+            <a href="#" class="btn btn-danger btn-lg active" role="button" aria-pressed="true"><i class="fas fa-trash"></i>Delete recipes</a>
+        </div>
+    </div>
+</div>
+
+{% for recipe in recipes %}
+
 <div class="container">
     <h2>{{recipe.recipe_name}} - {{recipe.recipe_difficulty}}</h2>
-    <p class="price">Price: {{recipe.recipe_price}}<br> Preparation time:   {{recipe.recipe_cooking_time}}</p>
+    <p class="price">Price: {{recipe.recipe_price}}<br> Preparation time: {{recipe.recipe_cooking_time}}</p>
     <div class="row">
-        <div class=col-md-8>
-           <img class="img-fluid" src="{{recipe.recipe_img}}">
+        <div class="col-md-8 col-12">
+            <img class="img-fluid" src="{{recipe.recipe_img}}">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-12">
             <p>
                 ingredients for: {{recipe.recipe_doses}}
             </p>
             <ul>
-                <li><strong>{{recipe.recipe_ingredients[0]}}</strong></li><br>
-                <li><strong>{{recipe.recipe_ingredients[1]}}</strong></li><br>
-                <li><strong>{{recipe.recipe_ingredients[2]}}</strong></li><br>
-                <li><strong>{{recipe.recipe_ingredients[3]}}</strong></li><br>
-                <li><strong>{{recipe.recipe_ingredients[4]}}</strong></li><br>
-                <li><strong>{{recipe.recipe_ingredients[5]}}</strong></li><br>
+                {% for ingredients in recipe.recipe_ingredients %}
+                    <li><strong>{{ingredients}}</strong></li><br> 
+                {% endfor %}
             </ul>
         </div>
     </div>
-    <div class="col-12">
+    <div class="row">
         <h3>Tools required</h3>
-        <ul>
-            <li><strong>{{recipe.recipe_tools[0]}}</strong></li><br>
-            <li><strong>{{recipe.recipe_tools[1]}}</strong></li><br>
-        </ul>
+        <div class="col-12">
+
+            <ul>
+                {% for tools in recipe.recipe_tools %}
+                    <li><strong>{{tools}}</strong></li><br> 
+                {% endfor %}
+            </ul>
+        </div>
     </div>
-    <div class="col-12">
-        <h3>Preparation Steps</h3>
-        <p>
-            {{recipe.recipe_preparation_steps}}
-        </p>
+    <div class="row">
+        <div class="col-12">
+            <h3>Preparation Steps</h3>
+            <p>
+                {{recipe.recipe_preparation_steps}}
+            </p>
+        </div>
     </div>
 </div>
 </div>

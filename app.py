@@ -16,7 +16,7 @@ def index():
 
 @app.route("/get_recipes")   
 def get_recipes():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find())
+    return render_template("recipes.html", recipes=mongo.db.recipes.find().sort("category_name"))
     
 @app.route("/add_recipe")
 def add_recipe():
@@ -27,7 +27,8 @@ def add_recipe():
 def insert_recipe():
 
     ingredients = request.form.get("recipe_ingredients").splitlines()
-
+    tools = request.form.get("recipe_tools").splitlines()
+    
     # Recipe JSON object
     submission = {
         "recipe_name": request.form.get("recipe_name"),
@@ -37,7 +38,7 @@ def insert_recipe():
         "recipe_ingredients": ingredients,
         "recipe_cooking_time": request.form.get("recipe_cooking_time"),
         "recipe_price": request.form.get("recipe_price"),
-        "recipe_tools": request.form.get("recipe_tools"),
+        "recipe_tools": tools,
         "recipe_doses": request.form.get("recipe_doses"),
         "recipe_preparation_steps": request.form.get("recipe_preparation_steps"),
     }
