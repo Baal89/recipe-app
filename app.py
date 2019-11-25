@@ -47,7 +47,13 @@ def insert_recipe():
     recipes.insert_one(submission)
     return redirect(url_for("get_recipes"))
 
-
+# edit recipe - edit recipe function
+@app.route("/edit_recipe/<recipe_id>")
+def edit_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({"_id" : ObjectId(recipe_id) })
+    all_recipes = mongo.db.categories.find()
+    return render_template("editrecipes.html", recipe = the_recipe, categories = all_recipes)
+    
 if __name__=="__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),
