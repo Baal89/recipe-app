@@ -16,7 +16,7 @@ def index():
 
 @app.route("/get_recipes")   
 def get_recipes():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find().sort("category_name"))
+    return render_template("recipes.html", recipes = mongo.db.recipes.find().sort("category_name"))
     
 @app.route("/add_recipe")
 def add_recipe():
@@ -52,7 +52,32 @@ def insert_recipe():
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id" : ObjectId(recipe_id) })
     all_recipes = mongo.db.categories.find()
-    return render_template("editrecipes.html", recipe = the_recipe, categories = all_recipes)
+    return render_template("editrecipes.html", recipes = the_recipe, categories = all_recipes)
+ 
+    
+@app.route('/update_recipe/<recipe_id>', methods=["POST"])
+def update_recipe(recipe_id):
+    recipes = mongo.db.recipes
+    
+    ingredients = request.form.get("recipe_ingredients").splitlines()
+    tools = request.form.get("recipe_tools").splitlines()
+    
+    recipes.update( {'_id': ObjectId(recipe_id)},
+    
+    
+    {
+        "recipe_name": request.form.get("recipe_name"),
+        "category_name": request.form.get("category_name"),
+        "recipe_img": request.form.get("recipe_img"),
+        "recipe_difficulty": request.form.get("recipe_difficulty"),
+        "recipe_ingredients": ingredients,
+        "recipe_cooking_time": request.form.get("recipe_cooking_time"),
+        "recipe_price": request.form.get("recipe_price"),
+        "recipe_tools": tools,
+        "recipe_doses": request.form.get("recipe_doses"),
+        "recipe_preparation_steps": request.form.get("recipe_preparation_steps"),
+    })
+    return redirect(url_for("get_recipes"))
     
 if __name__=="__main__":
     app.run(host=os.environ.get("IP"),
