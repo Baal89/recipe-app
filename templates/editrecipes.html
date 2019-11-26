@@ -48,13 +48,13 @@
         <div class="row">
             <div class="form-group col-12">
                 <label>Recipe ingredients</label>
-                <textarea type="textarea" class="form-control" name="recipe_ingredients" id="recipe_ingredients"  value = "{{recipes.recipe_ingredients}}"></textarea>
+                <textarea class="form-control" name="recipe_ingredients" id="recipe_ingredients" <text>{{recipes.recipe_ingredients|join("\n")}}</textarea>
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-6 col-12">
                 <label>Recipe tools</label>
-                <textarea type="textarea" class="form-control" name="recipe_tools" id="recipe_tools" value ="{{recipes.recipe_tools}}"></textarea>
+                <textarea class="form-control" name="recipe_tools" id="recipe_tools"<text>{{recipes.recipe_tools|join("\n")}}</textarea>
             </div>
             <div class="form-group col-md-6 col-12">
                 <label>Recipe doses</label>
@@ -64,7 +64,7 @@
         <div class="row">
             <div class="form-group col-12">
                 <label>Preparation steps</label>
-                <textarea type="textarea" class="form-control" name="recipe_preparation_steps" id="recipe_preparation_steps" value ="{{recipes.recipe_preparation_steps}}"></textarea>
+                <textarea class="form-control" name="recipe_preparation_steps" id="recipe_preparation_steps"<text>{{recipes.recipe_preparation_steps}}</textarea>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

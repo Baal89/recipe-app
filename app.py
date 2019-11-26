@@ -18,6 +18,7 @@ def index():
 def get_recipes():
     return render_template("recipes.html", recipes = mongo.db.recipes.find().sort("category_name"))
     
+#
 @app.route("/add_recipe")
 def add_recipe():
     return render_template("addrecipes.html", categories=mongo.db.categories.find())
@@ -47,14 +48,16 @@ def insert_recipe():
     recipes.insert_one(submission)
     return redirect(url_for("get_recipes"))
 
+
 # edit recipe - edit recipe function
 @app.route("/edit_recipe/<recipe_id>")
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id" : ObjectId(recipe_id) })
     all_recipes = mongo.db.categories.find()
+    
     return render_template("editrecipes.html", recipes = the_recipe, categories = all_recipes)
  
-    
+ #update recipe - update recipe function
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
@@ -77,7 +80,8 @@ def update_recipe(recipe_id):
         "recipe_doses": request.form.get("recipe_doses"),
         "recipe_preparation_steps": request.form.get("recipe_preparation_steps"),
     })
-    return redirect(url_for("get_recipes"))
+    return redirect("/get_recipes")
+
     
 if __name__=="__main__":
     app.run(host=os.environ.get("IP"),
