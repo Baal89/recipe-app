@@ -18,7 +18,7 @@ def index():
 def get_recipes():
     return render_template("recipes.html", recipes = mongo.db.recipes.find().sort("category_name"))
     
-#
+
 @app.route("/add_recipe")
 def add_recipe():
     return render_template("addrecipes.html", categories=mongo.db.categories.find())
@@ -87,6 +87,13 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
 
+@app.route('/about')
+def about():
+    return render_template('about-us.html')
+    
+@app.route('/shop')
+def shop():
+    return render_template('shop.html')
     
 if __name__=="__main__":
     app.run(host=os.environ.get("IP"),

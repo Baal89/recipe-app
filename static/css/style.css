@@ -1,0 +1,19 @@
+/* navbar section */
+
+.nav-link {
+    font-size: 20px;
+    padding: 0 40px;
+    display: block;
+    color: black;
+    transition: color 2s ease-in-out;
+    margin: 20px;
+}
+
+
+.nav-link:hover {
+    color: #f78f1e;
+}
+
+.navbar-brand {
+     color: #f78f1e;
+}
