@@ -27,3 +27,123 @@
     color: #f78f1e;
 }
 
+@media only screen and (max-width: 768px) {
+    .navbar-light .navbar-brand {
+        font-size: 20px;
+    }
+}
+
+/*-------------------------------------------------------index.html */
+
+/*---------------------------------------------carousel */
+
+.d-md-block {
+    text-transform: uppercase;
+    padding: 1em;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.d-md-block p {
+    font-size: 35px;
+    text-shadow: 2px 2px #000000;
+}
+
+.d-md-block .nav-button {
+    border: none;
+    color: white;
+    background-color: #f78f1e;
+    padding: 15px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
+}
+
+.d-md-block .nav-button:hover {
+    color: black;
+}
+
+/*-----------------------------------article description*/
+
+.description {
+    margin: 70px auto;
+    padding: 100px 0;
+    background-image: url("../assets/img/tools.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: black;
+}
+
+.title {
+    text-decoration: underline #f78f1e;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.description p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/*---------------------------------------------cards*/
+
+.cards {
+    margin: 30px auto;
+    padding: 50px 0;
+}
+
+.cards p {
+    font-size: 18px;
+}
+
+.cards-header {
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.nav-button-cards {
+    margin-top: 30px;
+    border: 1px solid #f78f1e;
+    color: black;
+    background-color: white;
+    padding: 15px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.nav-button-cards:hover {
+    background-color: #f78f1e;
+    color: white;
+}
+
+
+/*-------------------------------------------recipe book*/
+
+.book {
+    margin: 30px auto;
+    padding: 50px 0;
+}
+
+.recipe-book {
+    margin-bottom: 25px;
+}
+
+.recipe-book h2 {
+     text-transform: uppercase;
+}
+
+.recipe-book p {
+    font-size: 18px;
+}
