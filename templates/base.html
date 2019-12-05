@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" type="text/css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}" type="text/css">
@@ -18,7 +19,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end"  id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{url_for('index') }}">Home <span class="sr-only">(current)</span></a>
@@ -42,16 +43,29 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <logo></logo>
-                    <p></p>
+                <div class="col-md-8 col-12">
+                    <a class="navbar-brand" href="{{ url_for('index') }}"><strong>Pasta Factory</strong></a>
+                    <h5 class="details-header">contact us:</h5>
+                    <p>Tel: 123456789</p>
+                    <p>fax: 123456789</p>
+                    <p>email: pastafactory@.com</p>
                 </div>
-                <div class="col-md-4">
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-youtube"></i>
-                    <i class="fab fa-twitter-square"></i>
+                <div class="col-md-4 col-12 social-media">
+                    <h5>follow us:</h5>
+                    <a href="#">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid px-0">
+            <p class="text-center credit">&copy; Alessio Centamore 2019</p>
         </div>
     </footer>
 

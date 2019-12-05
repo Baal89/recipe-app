@@ -1,3 +1,10 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
 /*------------------------------------------------------ navbar section */
 
 .navbar-light .navbar-nav .nav-link {
@@ -20,7 +27,8 @@
     font-weight: 400;
     text-transform: uppercase;
     text-shadow: 2px 2px 4px #000000;
-    font-size: 30px;
+    font-size: 45px;
+    font-family: 'Amatic SC', cursive;
 }
 
 .navbar-light .navbar-brand:hover {
@@ -72,7 +80,7 @@
 /*-----------------------------------article description*/
 
 .description {
-    margin: 70px auto;
+    margin: 70px 0;
     padding: 100px 0;
     background-image: url("../assets/img/tools.jpg");
     background-position: center center;
@@ -95,7 +103,7 @@
 /*---------------------------------------------cards*/
 
 .cards {
-    margin: 30px auto;
+    margin: 30px 0;
     padding: 50px 0;
 }
 
@@ -134,6 +142,7 @@
 .book {
     margin: 30px auto;
     padding: 50px 0;
+    width: 50%;
 }
 
 .recipe-book {
@@ -141,9 +150,69 @@
 }
 
 .recipe-book h2 {
-     text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .recipe-book p {
     font-size: 18px;
+}
+
+/*----------------------------------------------------------------footer*/
+
+footer {
+    background-color: #262626;
+    color: white;
+}
+
+footer a {
+    padding: 0 15px;
+    text-decoration: none;
+}
+
+footer i {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #f78f1e;
+    background-color: white;
+    transition: color 0.2s ease-in-out;
+    border-radius: 100%;
+    padding:  10px;
+}
+
+footer i:hover {
+    color: black;
+    text-decoration: none;
+}
+
+
+footer p {
+    font-size: 15px;
+    line-height: 12px;
+    color: #989898;
+}
+
+.details-header {
+    margin-bottom: 15px;
+}
+
+.navbar-brand {
+    color: #f78f1e;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 45px;
+    font-family: 'Amatic SC', cursive;
+}
+
+.navbar-brand:hover {
+    color: #f78f1e;
+}
+
+.social-media {
+    margin-top: 15px;
+}
+
+.credit {
+    background-color: #1b1b1b;
+    padding: 15px 0;
 }
