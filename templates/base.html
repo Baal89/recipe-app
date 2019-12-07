@@ -27,13 +27,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url_for('about') }}">About us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('get_recipes') }}">Recipes</a>
+                    <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Recipes
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item nav-link" href="{{url_for('get_recipes') }}">See recipes</a>
+                            <a class="dropdown-item nav-link" href="{{url_for('add_recipe') }}">Add a recipe</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url_for('shop') }}">Shop</a>
                     </li>
                 </ul>
+                <!--bootstrap search form ----->
+                <form class="form-inline search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search a recipe" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                </form>
             </div>
         </nav>
     </header>
@@ -64,8 +75,12 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid px-0">
-            <p class="text-center credit">&copy; Alessio Centamore 2019</p>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 px-0">
+                    <p class="text-center credit">&copy; Alessio Centamore 2019</p>
+                </div>
+            </div>
         </div>
     </footer>
 

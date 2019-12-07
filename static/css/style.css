@@ -1,11 +1,4 @@
-
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-/*------------------------------------------------------ navbar section */
+/*------------------------------------------------------------ navbar */
 
 .navbar-light .navbar-nav .nav-link {
     font-size: 20px;
@@ -41,6 +34,11 @@ body {
     }
 }
 
+@media only screen and (max-width: 600px) {
+   .bg-light .btn {
+         display: none;       
+    }
+}
 /*-------------------------------------------------------index.html */
 
 /*---------------------------------------------carousel */
@@ -100,11 +98,16 @@ body {
     font-weight: 600;
 }
 
+@media only screen and (max-width: 768px) {
+    .description {
+        padding: 20px 0;
+    }
+}
+
 /*---------------------------------------------cards*/
 
-.cards {
-    margin: 30px 0;
-    padding: 50px 0;
+.card {
+    padding: 0;
 }
 
 .cards p {
@@ -146,7 +149,7 @@ body {
 }
 
 .recipe-book {
-    margin-bottom: 25px;
+    margin: 100px auto 25px;
 }
 
 .recipe-book h2 {
@@ -165,7 +168,7 @@ footer {
 }
 
 footer a {
-    padding: 0 15px;
+    padding: 0 5px;
     text-decoration: none;
 }
 
@@ -176,7 +179,7 @@ footer i {
     background-color: white;
     transition: color 0.2s ease-in-out;
     border-radius: 100%;
-    padding:  10px;
+    padding: 10px;
 }
 
 footer i:hover {
@@ -209,10 +212,11 @@ footer p {
 }
 
 .social-media {
-    margin-top: 15px;
+    margin: 15px auto;
 }
 
 .credit {
     background-color: #1b1b1b;
     padding: 15px 0;
+    margin: 0;
 }
