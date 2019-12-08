@@ -1,52 +1,59 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% for recipe in recipes %}
 
-    {% for recipe in recipes %}
-
-    <div class="container">
+<section class="recipe-container">
+    <div class="container recipe-page">
         <div class="row">
-            <div class="col-3">
-                <a href="{{url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn btn-warning btn active" role="button" aria-pressed="true"><i class="fas fa-edit"></i>Update recipes</a>
-            </div>
-            <div class="col-3">
-                <a href="{{url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn btn-danger btn active" role="button" aria-pressed="true"><i class="fas fa-trash"></i>Delete recipes</a>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <h2>{{recipe.recipe_name}} - {{recipe.recipe_difficulty}}</h2>
-        <p class="price">Price: {{recipe.recipe_price}}<br> Preparation time: {{recipe.recipe_cooking_time}}</p>
-        <div class="row">
-            <div class="col-md-8 col-12">
-                <img class="img-fluid" src="{{recipe.recipe_img}}">
+            <div class="col-md-8 col-12 text-center">
+                <h2 class=recipe-name>{{recipe.recipe_name}}</h2>
             </div>
             <div class="col-md-4 col-12">
-                <p>
-                    ingredients for: {{recipe.recipe_doses}}
-                </p>
-                <ul>
+                <a href="{{url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn btn-warning btn recipe-button" role="button" aria-pressed="true"><i class="fas fa-edit"></i>Update</a>
+                <a href="{{url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn btn-danger btn recipe-button" role="button" aria-pressed="true"><i class="fas fa-trash"></i>Delete</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-12 recipe-img">
+                <img class="img-fluid" src="{{recipe.recipe_img}}">
+            </div>
+            <div class="col-md-4 col-12 recipe-details">
+                <!--<div>Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+                <p><img class="img-fluid icon" src="static/assets/img/ramen.png">type: <strong>{{recipe.category_name}}</strong></p>
+                <!--<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
+                <p><img class="img-fluid icon" src="static/assets/img/sterling-pound-sign-of-money.png">Price: <strong>{{recipe.recipe_price}}</strong></p>
+                <!--<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
+                <p><img class="img-fluid icon" src="static/assets/img/kitchen-pack.png">Preparation time: <strong>{{recipe.recipe_cooking_time}}</strong></p>
+                <!--<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
+                <p><img class="img-fluid icon" src="static/assets/img/chef.png"> difficulty: <strong>{{recipe.recipe_difficulty}}</strong></p>
+                <!--<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+                <p><img class="img-fluid icon" src="static/assets/img/vegetarian.png"> vegetarian: <strong>{{recipe.recipe_vegetarian}}</strong></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3 class="ingredients-header">ingredients for {{recipe.recipe_doses}}</h3>
+                <ul class="recipe-composition">
                     {% for ingredients in recipe.recipe_ingredients %}
                     <li><strong>{{ingredients}}</strong></li><br> {% endfor %}
                 </ul>
             </div>
         </div>
         <div class="row">
-            <h3>Tools required</h3>
-            <div class="col-12">
-
-                <ul>
-                    {% for tools in recipe.recipe_tools %}
-                    <li><strong>{{tools}}</strong></li><br> {% endfor %}
+            <div class="col-12 text-center">
+                <h3 class="ingredients-header">Allergens</h3>
+                 <ul class="recipe-composition">
+                    {% for ingredients in recipe.recipe_allergens %}
+                    <li><strong>{{ingredients}}</strong></li><br> {% endfor %}
                 </ul>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <h3>Preparation Steps</h3>
-                <p>
-                    {{recipe.recipe_preparation_steps}}
-                </p>
+                <h3  class="ingredients-header">Preparation Steps</h3>
+                <p>{{recipe.recipe_preparation_steps}}</p>
             </div>
         </div>
     </div>
+</section>
 
-    {% endfor %} {% endblock %}
+
+{% endfor %} {% endblock %}

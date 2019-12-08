@@ -28,17 +28,28 @@
     color: #f78f1e;
 }
 
-@media only screen and (max-width: 768px) {
+.bg-light .btn {
+    color: #f78f1e;
+    border: 1px solid #f78f1e;
+}
+
+.bg-light .btn:hover {
+    color: black;
+    border: 1px solid black;
+}
+
+@media only screen and (max-width: 600px) {
     .navbar-light .navbar-brand {
         font-size: 20px;
     }
 }
 
-@media only screen and (max-width: 600px) {
-   .bg-light .btn {
-         display: none;       
+@media only screen and (max-width: 1024px) {
+    .bg-light .btn {
+        display: none;
     }
 }
+
 /*-------------------------------------------------------index.html */
 
 /*---------------------------------------------carousel */
@@ -152,12 +163,86 @@
     margin: 100px auto 25px;
 }
 
-.recipe-book h2 {
+recipe-book-header {
     text-transform: uppercase;
 }
 
 .recipe-book p {
     font-size: 18px;
+}
+
+@media only screen and (max-width: 768px) {
+    .book {
+        width: 75%;
+    }
+}
+
+/*----------------------------------------------------------------recipes.html*/
+
+.recipe-container {
+    background-image: url("../assets/img/recipe-page.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 75px 15px;
+}
+
+.recipe-page {
+    background-color: white;
+    margin: 40px auto;
+}
+
+.recipe-name {
+    font-family: 'Amatic SC', cursive;
+    font-size: 50px;
+}
+
+.recipe-img {
+    margin: 35px auto;
+}
+
+.recipe-details {
+    margin: 100px 0;
+}
+
+.recipe-button {
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.icon {
+    width: 8%;
+    padding-right: 5px;
+}
+
+.ingredients-header {
+    font-family: 'Amatic SC', cursive;
+    font-size: 40px;
+    color: #f78f1e;
+}
+
+.recipe-composition {
+    display: inline-block;
+    text-align: left;
+    list-style: none;
+}
+
+.recipe-composition li::before {
+    content: "\2022";
+    color: #f78f1e;
+    font-weight: 800;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .recipe-details {
+        margin: 25px 0;
+        text-align: center;
+    }
 }
 
 /*----------------------------------------------------------------footer*/
