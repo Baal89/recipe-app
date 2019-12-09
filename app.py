@@ -14,12 +14,16 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html")
 
-@app.route("/get_recipes", methods=['GET', 'POST'])  
+@app.route("/get_recipes")  
 def get_recipes():
+        return render_template("recipes.html", recipes = mongo.db.recipes.find().sort("category_name", -1))
+        
+@app.route("/search", methods=['GET', 'POST'])  
+def search():
     if request.method == 'POST':
         recipe_search = request.form.get('recipe_search')
         recipes = mongo.db.recipes.find({'recipe_name': recipe_search})
-        return render_template("recipes.html", recipes = mongo.db.recipes.find().sort("category_name", -1))
+        return render_template("recipes.html", recipes = recipes)
         
 @app.route("/add_recipe")
 def add_recipe():
