@@ -16,8 +16,12 @@ def index():
 
 @app.route("/get_recipes")   
 def get_recipes():
-    return render_template("recipes.html", recipes = mongo.db.recipes.find().sort("category_name"))
-    
+    return render_template("recipes.html", recipes = mongo.db.recipes.find().sort("category_name", -1))
+
+app.route("/search", method=["GET","POST"])
+def search():
+    mongo.db.recipes.find({"$text": {"$search": "name vegetarian categories" }})
+    return redirect("recipes.html")
 
 @app.route("/add_recipe")
 def add_recipe():
@@ -28,7 +32,8 @@ def add_recipe():
 def insert_recipe():
 
     ingredients = request.form.get("recipe_ingredients").splitlines()
-    tools = request.form.get("recipe_tools").splitlines()
+    allergens = request.form.get("recipe_allergens").splitlines()
+    
     
     # Recipe JSON object
     submission = {
@@ -37,9 +42,10 @@ def insert_recipe():
         "recipe_img": request.form.get("recipe_img"),
         "recipe_difficulty": request.form.get("recipe_difficulty"),
         "recipe_ingredients": ingredients,
+        "recipe_allergens": allergens,
         "recipe_cooking_time": request.form.get("recipe_cooking_time"),
         "recipe_price": request.form.get("recipe_price"),
-        "recipe_tools": tools,
+        "recipe_vegetarian": request.form.get("recipe_vegetarian"),
         "recipe_doses": request.form.get("recipe_doses"),
         "recipe_preparation_steps": request.form.get("recipe_preparation_steps"),
     }
@@ -63,7 +69,8 @@ def update_recipe(recipe_id):
     recipes = mongo.db.recipes
     
     ingredients = request.form.get("recipe_ingredients").splitlines()
-    tools = request.form.get("recipe_tools").splitlines()
+    allergens = request.form.get("recipe_allergens").splitlines()
+   
     
     recipes.update( {'_id': ObjectId(recipe_id)},
     
@@ -74,9 +81,10 @@ def update_recipe(recipe_id):
         "recipe_img": request.form.get("recipe_img"),
         "recipe_difficulty": request.form.get("recipe_difficulty"),
         "recipe_ingredients": ingredients,
+        "recipe_allergens": allergens,
         "recipe_cooking_time": request.form.get("recipe_cooking_time"),
         "recipe_price": request.form.get("recipe_price"),
-        "recipe_tools": tools,
+        "recipe_vegetarian": request.form.get("recipe_vegetarian"),
         "recipe_doses": request.form.get("recipe_doses"),
         "recipe_preparation_steps": request.form.get("recipe_preparation_steps"),
     })

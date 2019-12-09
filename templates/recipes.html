@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %} {% for recipe in recipes %}
+{% extends 'base.html' %} {% block content %} 
+
+{% for recipe in recipes %}
 
 <section class="recipe-container">
     <div class="container recipe-page">
@@ -29,16 +31,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-md-6 col-12 text-center">
                 <h3 class="ingredients-header">ingredients for {{recipe.recipe_doses}}</h3>
                 <ul class="recipe-composition">
                     {% for ingredients in recipe.recipe_ingredients %}
                     <li><strong>{{ingredients}}</strong></li><br> {% endfor %}
                 </ul>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-md-6 col-12 text-center">
                 <h3 class="ingredients-header">Allergens</h3>
                  <ul class="recipe-composition">
                     {% for ingredients in recipe.recipe_allergens %}
@@ -56,4 +56,6 @@
 </section>
 
 
-{% endfor %} {% endblock %}
+{% endfor %} 
+
+{% endblock %}

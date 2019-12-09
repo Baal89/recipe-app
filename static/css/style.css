@@ -10,7 +10,6 @@
     margin: 20px;
 }
 
-
 .navbar-light .navbar-nav .nav-link:hover {
     color: #f78f1e;
 }
@@ -40,7 +39,7 @@
 
 @media only screen and (max-width: 600px) {
     .navbar-light .navbar-brand {
-        font-size: 20px;
+        font-size: 30px;
     }
 }
 
@@ -191,6 +190,7 @@ recipe-book-header {
 .recipe-page {
     background-color: white;
     margin: 40px auto;
+    padding: 20px 15px;
 }
 
 .recipe-name {
@@ -200,6 +200,11 @@ recipe-book-header {
 
 .recipe-img {
     margin: 35px auto;
+}
+
+.recipe-img .img-fluid {
+   max-height: 400px;
+   
 }
 
 .recipe-details {
@@ -238,11 +243,33 @@ recipe-book-header {
 }
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
     .recipe-details {
         margin: 25px 0;
         text-align: center;
+
     }
+}
+
+@media only screen and (max-width: 600px) {
+    .recipe-img {
+        text-align: center;
+    }
+}
+
+/*-----------------------------------------------------addrecipe.html and editrecipe.html*/
+
+.form-header {
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    color: #f78f1e;
+    font-size: 50px;
+}
+
+.form-page {
+    background-color: white;
+    margin: 55px auto;
+    padding: 35px 0;
 }
 
 /*----------------------------------------------------------------footer*/

@@ -1,19 +1,21 @@
  {% extends 'base.html' %} {% block content %}
 
 <!-- bootstrap form-->
-<div class="container">
-    <h3> edit a recipe</h3>
-    <form action="{{url_for('update_recipe', recipe_id=recipes._id) }}" method="POST" class="col-12">
-        <div class="row">
-            <div class="form-group col-12">
-                <label>Recipe name</label>
-                <input type="text" class="form-control" name="recipe_name" id="recipe_name" value ="{{recipes.recipe_name}}">
+
+<section class="recipe-container">
+    <div class="container form-page">
+        <h3 class="form-header"> edit a recipe</h3>
+        <form action="{{url_for('update_recipe', recipe_id=recipes._id) }}" method="POST" class="col-12">
+            <div class="row">
+                <div class="form-group col-12">
+                    <label>Recipe name</label>
+                    <input type="text" class="form-control" name="recipe_name" id="recipe_name" value="{{recipes.recipe_name}}">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-12">
-                <label for="exampleFormControlSelect1">Select a category</label>
-                <select class="form-control" id="category" name="category_name">
+            <div class="row">
+                <div class="form-group col-12">
+                    <label for="exampleFormControlSelect1">Select a category</label>
+                    <select class="form-control" id="category" name="category_name">
                      <option disabled selected>Choose a category</option>
                      {% for cat in categories %}
                          {% if cat.category_name == recipes.category_name %}
@@ -23,52 +25,57 @@
                         {% endif %}
                      {% endfor %}
                 </select>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-12">
-                <label>Recipe img url</label>
-                <input type="text" class="form-control" name="recipe_img" id="recipe_img"  value= "{{recipes.recipe_img}}">
+            <div class="row">
+                <div class="form-group col-12">
+                    <label>Recipe img url</label>
+                    <input type="text" class="form-control" name="recipe_img" id="recipe_img" value="{{recipes.recipe_img}}">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-4 col-12">
-                <label>Recipe difficulty</label>
-                <input type="text" class="form-control" name="recipe_difficulty" id="recipe_difficulty" value="{{recipes.recipe_difficulty}}">
+            <div class="row">
+                <div class="form-group col-md-4 col-12">
+                    <label>Recipe difficulty</label>
+                    <input type="text" class="form-control" name="recipe_difficulty" id="recipe_difficulty" value="{{recipes.recipe_difficulty}}">
+                </div>
+                <div class="form-group col-md-4 col-12">
+                    <label>Recipe cooking time </label>
+                    <input type="text" class="form-control" name="recipe_cooking_time" id="recipe_cooking_time" value="{{recipes.recipe_cooking_time}}">
+                </div>
+                <div class="form-group col-md-4 col-12">
+                    <label>Recipe price</label>
+                    <input type="text" class="form-control" name="recipe_price" id="recipe_price" value="{{recipes.recipe_price}}">
+                </div>
             </div>
-            <div class="form-group col-md-4 col-12">
-                <label>Recipe cooking time </label>
-                <input type="text" class="form-control" name="recipe_cooking_time" id="recipe_cooking_time" value="{{recipes.recipe_cooking_time}}">
+            <div class="row">
+                <div class="form-group col-md-6 col-12">
+                    <label>Recipe ingredients</label>
+                    <textarea type="textarea" class="form-control" name="recipe_ingredients" id="recipe_ingredients" placeholder="please enter each ingredients in a new line">{{recipes.recipe_ingredients|join("\n")}}</textarea>
+                </div>
+                <div class="form-group col-md-6 col-12">
+                    <label>Recipe allergens</label>
+                    <textarea type="textarea" class="form-control" name="recipe_allergens" id="recipe_allergens" placeholder="please enter each allergen in a new line">{{recipes.recipe_allergens|join("\n")}}</textarea>
+                </div>
             </div>
-            <div class="form-group col-md-4 col-12">
-                <label>Recipe price</label>
-                <input type="text" class="form-control" name="recipe_price" id="recipe_price" value = "{{recipes.recipe_price}}">
+            <div class="row">
+                <div class="form-group col-md-6 col-12">
+                    <label>vegetarian(yes/no)</label>
+                    <input type="text" class="form-control" name="recipe_vegetarian" id="recipe_vegetarian" value="{{recipes.recipe_vegetarian}}">
+                </div>
+                <div class="form-group col-md-6 col-12">
+                    <label>Recipe doses</label>
+                    <input type="text" class="form-control" name="recipe_doses" id="recipe_doses" value="{{recipes.recipe_doses}}">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-12">
-                <label>Recipe ingredients</label>
-                <textarea class="form-control" name="recipe_ingredients" id="recipe_ingredients" <text>{{recipes.recipe_ingredients|join("\n")}}</textarea>
+            <div class="row">
+                <div class="form-group col-12">
+                    <label>Preparation steps</label>
+                    <textarea class="form-control" name="recipe_preparation_steps" id="recipe_preparation_steps" <text>{{recipes.recipe_preparation_steps}}</textarea>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-6 col-12">
-                <label>Recipe tools</label>
-                <textarea class="form-control" name="recipe_tools" id="recipe_tools" <text>{{recipes.recipe_tools|join("\n")}}</textarea>
-            </div>
-            <div class="form-group col-md-6 col-12">
-                <label>Recipe doses</label>
-                <input type="text" class="form-control" name="recipe_doses" id="recipe_doses" value ="{{recipes.recipe_doses}}" >
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-12">
-                <label>Preparation steps</label>
-                <textarea class="form-control" name="recipe_preparation_steps" id="recipe_preparation_steps"<text>{{recipes.recipe_preparation_steps}}</textarea>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+            <button type="submit" class="btn btn-primary form-button">Submit</button>
+        </form>
+    </div>
+</section>
 {% endblock %}
- 
+
