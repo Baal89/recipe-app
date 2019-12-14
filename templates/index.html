@@ -35,13 +35,13 @@
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>s
-            </a>
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>s
+                    </a>
                     <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                        </a>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
 
     <!-- bootstrap card element -->
     <div class="container-fluid">
-        <div class="row text-center cards px-0">
+        <div class="row text-center cards">
             <h2 class="cards-header col-12"> unleash your creativity in the kitchen</h2>
             <div class="card col-md-3 col-6" style="width: 14rem;">
                 <img src="static/assets/img/pots.jpg" class="card-img-top" alt="set of pots">
@@ -88,15 +88,15 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <button class="nav-button-cards">discover all</button>
+            <a href="{{ url_for('shop') }}"><button class="nav-button-cards">discover all</button></a>
         </div>
     </div>
-    </div>
+  
 <!-------------------------------------------------recipe book section -->
     <div class="container">
         <div class="row text-center">
             <article class="recipe-book col-12">
-                <h2 class="recipe-book-header">Have fun with i genietti and create your dishes</h2>
+                <h2 class="recipe-book-header">Have fun with pasta factory and create your dishes</h2>
                 <p>Click the book and discover a world of recipes!</p>
             </article>
         </div>

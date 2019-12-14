@@ -1,4 +1,34 @@
 {% extends 'base.html' %} {% block content %}
 
 
+<section>
+    <div class="container utensil-page">
+        <h1 class="shop-header">Kitchen Utensil</h1>
+        <div class="row">
+
+            {% for utensil in utensils %}
+
+            <div class="col-md-4 col-12 utensil-gallery">
+                <h5>{{utensil.name}}</h5>
+                <figure class="gallery-item text-center">
+                    <img src="{{utensil.img}}" alt="utensil" class="image-fluid">
+                    <figcaption class="img-title">
+                        <p>{{utensil.description}}</p>
+                    </figcaption>
+                </figure>
+                <div class="row">
+                    <p class="col-6">{{utensil.disponibility}}</p>
+                    <p class="col-6">{{utensil.price}}</p>
+                </div>
+                <div class="row">
+                    <a href="#"><button class="button-title">add to basket</button></a>
+                </div>
+            </div>
+            
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
 {% endblock %}

@@ -37,6 +37,7 @@
     border: 1px solid black;
 }
 
+
 @media only screen and (max-width: 600px) {
     .navbar-light .navbar-brand {
         font-size: 30px;
@@ -118,6 +119,7 @@
 
 .card {
     padding: 0;
+    border: none;
 }
 
 .cards p {
@@ -274,7 +276,6 @@ recipe-book-header {
 
 /*------------------------------------------------------about us.html*/
 
-
 .video-header {
     font-family: 'Amatic SC', cursive;
     color: #f78f1e;
@@ -316,6 +317,83 @@ recipe-book-header {
     padding: 30px 0;
 }
 
+/*------------------------------------------------------------shop.html*/
+
+.utensil-page {
+    margin: 60px auto;
+}
+
+.shop-header {
+    margin: 25px;
+}
+
+.img-title {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    height: 75%;
+    width: 80%;
+    display: none;
+    background-color: white;
+}
+
+.img-title h5 {
+    position: absolute;
+    color: black;
+    width: 100%;
+    text-align: center;
+}
+
+.button-title {
+    border: none;
+    color: white;
+    background-color: #f78f1e;
+    padding: 15px 24px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
+}
+
+.button-title:hover {
+    color: black;
+}
+
+.utensil-gallery{
+    margin: 30px auto;   
+}
+
+#mobile-button {
+    display: none;
+}
+
+@media only screen and (min-width: 1200px) {
+    .gallery-item img{
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .gallery-item img{
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .gallery-item img{
+        width: 150px;
+        height: 150px;
+    } .button-title{
+        font-size: 12px;
+        padding: 10px 18px;
+        margin-left: 10px;
+    } .shop-header {
+        text-align: center;
+    }
+}
 /*----------------------------------------------------------------footer*/
 
 footer {

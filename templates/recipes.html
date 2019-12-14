@@ -41,8 +41,8 @@
             <div class="col-md-6 col-12 text-center">
                 <h3 class="ingredients-header">Allergens</h3>
                  <ul class="recipe-composition">
-                    {% for ingredients in recipe.recipe_allergens %}
-                    <li><strong>{{ingredients}}</strong></li><br> {% endfor %}
+                    {% for allergens in recipe.recipe_allergens %}
+                    <li><strong>{{allergens}}</strong></li><br> {% endfor %}
                 </ul>
             </div>
         </div>

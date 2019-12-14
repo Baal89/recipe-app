@@ -18,12 +18,11 @@ def index():
 def get_recipes():
         return render_template("recipes.html", recipes = mongo.db.recipes.find().sort("category_name", -1))
         
-@app.route("/search", methods=['GET', 'POST'])  
+@app.route("/search", methods=['POST'])  
 def search():
-    if request.method == 'POST':
-        recipe_search = request.form.get('recipe_search')
-        recipes = mongo.db.recipes.find({'recipe_name': recipe_search})
-        return render_template("recipes.html", recipes = recipes)
+    query = request.form.get('query')
+    recipes = mongo.db.recipes.find({'$text' : {'$search' : query} })
+    return render_template("recipes.html", recipes = recipes, type = 'searched')
         
 @app.route("/add_recipe")
 def add_recipe():
@@ -103,14 +102,11 @@ def about():
     
 @app.route('/shop')
 def shop():
-    return render_template('shop.html')
+    return render_template('shop.html', utensils = mongo.db.utensils.find())
     
 if __name__=="__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),
         debug=True)
         
-        
-
-
-
+    

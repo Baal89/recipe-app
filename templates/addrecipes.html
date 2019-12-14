@@ -16,7 +16,7 @@
                 <div class="form-group col-12">
                     <label for="exampleFormControlSelect1">Select a category</label>
                     <select class="form-control" id="category" name="category_name">
-                     <option disabled selected>Choose a category</option>
+                    <option disabled selected>Choose a category</option>
                      {% for cat in categories %}
                          <option value="{{cat.category_name}}">{{cat.category_name}}</option>
                      {% endfor %}
