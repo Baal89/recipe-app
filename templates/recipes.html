@@ -30,15 +30,15 @@
                 <p><img class="img-fluid icon" src="static/assets/img/vegetarian.png"> vegetarian: <strong>{{recipe.recipe_vegetarian}}</strong></p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 col-12 text-center">
+        <div class="row recipe-row">
+            <div class="col-md-6 col-6">
                 <h3 class="ingredients-header">ingredients for {{recipe.recipe_doses}}</h3>
                 <ul class="recipe-composition">
                     {% for ingredients in recipe.recipe_ingredients %}
                     <li><strong>{{ingredients}}</strong></li><br> {% endfor %}
                 </ul>
             </div>
-            <div class="col-md-6 col-12 text-center">
+            <div class="col-md-6 col-6">
                 <h3 class="ingredients-header">Allergens</h3>
                  <ul class="recipe-composition">
                     {% for allergens in recipe.recipe_allergens %}
@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-12">
                 <h3  class="ingredients-header">Preparation Steps</h3>
-                <p>{{recipe.recipe_preparation_steps}}</p>
+                <p class="steps">{{recipe.recipe_preparation_steps}}</p>
             </div>
         </div>
     </div>

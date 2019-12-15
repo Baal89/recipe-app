@@ -41,6 +41,8 @@
 @media only screen and (max-width: 600px) {
     .navbar-light .navbar-brand {
         font-size: 30px;
+    } .navbar-light .navbar-nav .nav-link {
+        font-size: 16px;
     }
 }
 
@@ -80,6 +82,7 @@
     font-size: 16px;
     font-weight: bold;
     transition: color 0.2s ease-in-out;
+    border-radius: 4px;
 }
 
 .d-md-block .nav-button:hover {
@@ -102,6 +105,7 @@
     text-decoration: underline #f78f1e;
     text-transform: uppercase;
     margin-bottom: 30px;
+    font-size: 30px;
 }
 
 .description p {
@@ -109,9 +113,19 @@
     font-weight: 600;
 }
 
-@media only screen and (max-width: 768px) {
-    .description {
+@media only screen and (max-width: 800px) {
+    .description,
+    background-image {
         padding: 20px 0;
+        opacity: 0.9;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .description p {
+        font-size: 14px;
+    } .title {
+        font-size: 18px;
     }
 }
 
@@ -130,6 +144,7 @@
     margin-bottom: 50px;
     padding-bottom: 50px;
     text-transform: uppercase;
+    font-size: 25px;
 }
 
 .nav-button-cards {
@@ -144,6 +159,7 @@
     font-size: 16px;
     font-weight: bold;
     transition: background-color 0.2s ease-in-out;
+    border-radius: 4px;
 }
 
 .nav-button-cards:hover {
@@ -151,6 +167,15 @@
     color: white;
 }
 
+@media only screen and (max-width: 600px) {
+    .cards-header {
+        font-size: 18px
+    } .cards p {
+        font-size: 12px;
+    } .nav-button-cards {
+        font-size: 12px;
+    }
+}
 
 /*-------------------------------------------recipe book*/
 
@@ -164,8 +189,9 @@
     margin: 100px auto 25px;
 }
 
-recipe-book-header {
+.recipe-book-header {
     text-transform: uppercase;
+    font-size: 25px;
 }
 
 .recipe-book p {
@@ -175,6 +201,14 @@ recipe-book-header {
 @media only screen and (max-width: 768px) {
     .book {
         width: 75%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .recipe-book-header {
+        font-size: 18px;
+    } .recipe-book p {
+        font-size: 14px;
     }
 }
 
@@ -229,11 +263,16 @@ recipe-book-header {
     color: #f78f1e;
 }
 
+
 .recipe-composition {
     display: inline-block;
     text-align: left;
     list-style: none;
 }
+
+
+
+/*-----------------w3schools tutorial for change the color of a ul bullet*/
 
 .recipe-composition li::before {
     content: "\2022";
@@ -249,13 +288,22 @@ recipe-book-header {
     .recipe-details {
         margin: 25px 0;
         text-align: center;
-
+    }
+    .recipe-composition,
+    .steps{
+        font-size: 12px;
+    } .ingredients-header {
+        font-size: 28px;
     }
 }
 
 @media only screen and (max-width: 600px) {
     .recipe-img {
         text-align: center;
+    } .recipe-details p {
+        font-size: 12px;
+    } .recipe-button {
+        font-size: 14px;
     }
 }
 
@@ -282,7 +330,7 @@ recipe-book-header {
     font-size: 60px;
 }
 
-.video-paragraph {
+.paragraph {
     font-size: 18px;
     font-weight: bold;
 }
@@ -301,12 +349,15 @@ recipe-book-header {
 .subcontainer-header {
     text-align: center;
     margin: 20px auto;
+    font-size: 25px;
+    text-transform: uppercase;
 }
 
 .about-header {
     text-decoration: underline #f78f1e;
     text-transform: uppercase;
     margin-bottom: 30px;
+    font-size: 25px;
 }
 
 .about-paragraph {
@@ -317,7 +368,38 @@ recipe-book-header {
     padding: 30px 0;
 }
 
+#about-picture {
+    padding-top: 75px;
+}
+
+@media only screen and (max-width: 900px) {
+    #about-picture {
+        padding-top: 0;
+    }
+    .about-row {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .paragraph {
+        font-size: 14px;
+    } .subcontainer-header {
+        font-size: 18px;
+    } .about-paragraph {
+          font-size: 14px;
+      } .about-header {
+          font-size: 18px;
+      } .about-img {
+          width:75%;
+      }
+}
+
 /*------------------------------------------------------------shop.html*/
+
+.shop-header {
+    padding: 45px 0;
+}
 
 .utensil-page {
     margin: 60px auto;
@@ -344,56 +426,44 @@ recipe-book-header {
     text-align: center;
 }
 
-.button-title {
-    border: none;
-    color: white;
-    background-color: #f78f1e;
-    padding: 15px 24px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: bold;
-    transition: color 0.2s ease-in-out;
+
+
+.utensil-gallery {
+    margin: 30px auto;
 }
 
-.button-title:hover {
-    color: black;
-}
-
-.utensil-gallery{
-    margin: 30px auto;   
-}
-
-#mobile-button {
-    display: none;
-}
 
 @media only screen and (min-width: 1200px) {
-    .gallery-item img{
+    .gallery-item img {
         width: 250px;
         height: 250px;
     }
 }
 
 @media only screen and (min-width: 768px) {
-    .gallery-item img{
+    .gallery-item img {
         width: 180px;
         height: 180px;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    .gallery-item img{
+    .gallery-item img {
         width: 150px;
         height: 150px;
-    } .button-title{
+    }
+    .button-title {
         font-size: 12px;
         padding: 10px 18px;
         margin-left: 10px;
-    } .shop-header {
+    }
+    .shop-header {
         text-align: center;
+    } #buy-button {
+        margin-left: 15px;
     }
 }
+
 /*----------------------------------------------------------------footer*/
 
 footer {
@@ -430,6 +500,7 @@ footer p {
 
 .details-header {
     margin-bottom: 15px;
+    font-size: 18px;
 }
 
 .navbar-brand {
@@ -453,4 +524,16 @@ footer p {
     background-color: #1b1b1b;
     padding: 15px 0;
     margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar-brand {
+        font-size: 30px;
+    } footer p {
+        font-size: 12px;
+    } .details-header {
+        font-size: 15px;
+    } footer i {
+        font-size: 15px;
+    }
 }

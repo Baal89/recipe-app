@@ -42,7 +42,7 @@
                 </ul>
                 <!--bootstrap search form ----->
                 <form action="{{url_for('search') }}" method="POST" class="form-inline search">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search a recipe" aria-label="Search" name="query">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search a recipe" aria-label="Search" name="query" data-toggle="tooltip" data-placement="right" title="serch recipes, category such as starter, and ingredients">
                     <button class="btn btn-outline my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
                 </form>
             </div>
@@ -54,14 +54,14 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-12">
+                <div class="col-md-8 col-6">
                     <a class="navbar-brand" href="{{ url_for('index') }}"><strong>Pasta Factory</strong></a>
                     <h5 class="details-header">contact us:</h5>
                     <p>Tel: 123456789</p>
                     <p>fax: 123456789</p>
                     <p>email: pastafactory@.com</p>
                 </div>
-                <div class="col-md-4 col-12 social-media">
+                <div class="col-md-4 col-6 social-media">
                     <h5>follow us:</h5>
                     <a href="#">
                         <i class="fab fa-facebook"></i>
@@ -97,7 +97,15 @@
                 $(this).find('.img-title').fadeOut(100);
             });
 
+            if ($(window).width() > 760) {
+                $(".recipe-row").addClass("text-center");
+            }
         });
+
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+        
     </script>
 </body>
 
