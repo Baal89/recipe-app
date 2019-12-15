@@ -46,7 +46,7 @@ def insert_recipe():
         "recipe_allergens": allergens,
         "recipe_cooking_time": request.form.get("recipe_cooking_time"),
         "recipe_price": request.form.get("recipe_price"),
-        "recipe_vegetarian": request.form.get("recipe_vegetarian"),
+        "recipe_dietary": request.form.get("recipe_dietary"),
         "recipe_doses": request.form.get("recipe_doses"),
         "recipe_preparation_steps": request.form.get("recipe_preparation_steps"),
     }
@@ -85,7 +85,7 @@ def update_recipe(recipe_id):
         "recipe_allergens": allergens,
         "recipe_cooking_time": request.form.get("recipe_cooking_time"),
         "recipe_price": request.form.get("recipe_price"),
-        "recipe_vegetarian": request.form.get("recipe_vegetarian"),
+        "recipe_dietary": request.form.get("recipe_dietary"),
         "recipe_doses": request.form.get("recipe_doses"),
         "recipe_preparation_steps": request.form.get("recipe_preparation_steps"),
     })
