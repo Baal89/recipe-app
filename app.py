@@ -18,6 +18,14 @@ def index():
 def get_recipes():
         return render_template("recipes.html", recipes = mongo.db.recipes.find().sort("category_name", -1))
         
+@app.route("/filter_recipes")
+def filter_recipes():
+    return render_template("filter.html", 
+    recipes = mongo.db.recipes.find(), 
+    categories = mongo.db.categories.find(),
+    dietaries = mongo.db.dietaries.find())
+        
+#search index function      
 @app.route("/search", methods=['POST'])  
 def search():
     query = request.form.get('query')
@@ -64,7 +72,7 @@ def edit_recipe(recipe_id):
     
     return render_template("editrecipes.html", recipes = the_recipe, categories = all_recipes)
  
- #update recipe - update recipe function
+#update recipe - update recipe function
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes

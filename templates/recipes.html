@@ -1,8 +1,10 @@
-{% extends 'base.html' %} {% block content %} 
+{% extends 'base.html' %} {% block content %}
+
 
 {% for recipe in recipes %}
 
 <section class="recipe-container">
+    <a href="{{url_for('filter_recipes') }}">filter</a>
     <div class="container recipe-page">
         <div class="row">
             <div class="col-md-8 col-12 text-center">
@@ -40,7 +42,7 @@
             </div>
             <div class="col-md-6 col-6">
                 <h3 class="ingredients-header">Allergens</h3>
-                 <ul class="recipe-composition">
+                <ul class="recipe-composition">
                     {% for allergens in recipe.recipe_allergens %}
                     <li><strong>{{allergens}}</strong></li><br> {% endfor %}
                 </ul>
@@ -48,7 +50,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <h3  class="ingredients-header">Preparation Steps</h3>
+                <h3 class="ingredients-header">Preparation Steps</h3>
                 <p class="steps">{{recipe.recipe_preparation_steps}}</p>
             </div>
         </div>
@@ -56,6 +58,6 @@
 </section>
 
 
-{% endfor %} 
+{% endfor %}
 
 {% endblock %}
