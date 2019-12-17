@@ -1,10 +1,81 @@
 {% extends 'base.html' %} {% block content %}
 
+<!-- bootstrap accordion and collapse navbar -->
+<section>
+    <form>
+        <div class="container text-center">
+            <p>
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    filter recipes
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <div class="row">
+                        <ul class="nav nav-tabs col-md-3">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Type</a>
+                                <div class="dropdown-menu">
+
+                                    {% for category in categories %}
+
+                                    <a class="dropdown-item" href="{{url_for('category_name', category.category_name) }}">{{category.category_name}}</a> 
+                                 
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-tabs col-md-3">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dietary</a>
+                                <div class="dropdown-menu">
+
+                                    {% for type in types %}
+
+                                    <a class="dropdown-item" href="#">{{type.name}}</a> 
+                                    
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-tabs col-md-3">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Difficulty</a>
+                                <div class="dropdown-menu">
+                                    
+                                    {% for difficult in difficulties %}
+                                    
+                                    <a class="dropdown-item" href="#">{{difficult.level}}</a>
+                                    
+                                    {% endfor %}
+                                    
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-tabs col-md-3">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Price</a>
+                                <div class="dropdown-menu">
+                                   
+                                   {% for price in prices %}
+                                   
+                                    <a class="dropdown-item" href="#">{{price.amount}}</a>
+                                    
+                                    {% endfor %}
+                                    
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
 
 {% for recipe in recipes %}
 
 <section class="recipe-container">
-    <a href="{{url_for('filter_recipes') }}">filter</a>
     <div class="container recipe-page">
         <div class="row">
             <div class="col-md-8 col-12 text-center">

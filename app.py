@@ -5,7 +5,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-app.config["MONGO_DBNAME"] = "recipes_app"
+app.config["MONGO_DBNAME"] = "recipe_guide"
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 
 mongo = PyMongo(app)
@@ -17,15 +17,13 @@ def index():
 @app.route("/get_recipes")  
 def get_recipes():
         return render_template("recipes.html", recipes = mongo.db.recipes.find().sort("category_name", -1))
-        
-@app.route("/filter_recipes")
-def filter_recipes():
-    return render_template("filter.html", 
-    recipes = mongo.db.recipes.find(), 
-    categories = mongo.db.categories.find(),
-    dietaries = mongo.db.dietaries.find())
-        
-#search index function      
+
+# filter recipe function        
+@app.route("/filter_recipes/<category_name>")
+def filter_recipes(category_name):
+    return render_template("recipes.html")
+    
+# search index function      
 @app.route("/search", methods=['POST'])  
 def search():
     query = request.form.get('query')
