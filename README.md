@@ -31,3 +31,13 @@ As any one of the users, I want to perform the following actions:
 
 
 ## Features
+
+The Pasta Factory website consist of 8 page with the following features:
+
+1. base.html page:
+   * the navbar - allows the user who open the site to navigate trough it.
+   * the footer - let the user who want to contact the company with social media tel or fax to get in touch with them.
+   
+2. index.html page:
+    * the carousel - give an interactive an immediate imput to the user of what the site does and provide.
+    * 

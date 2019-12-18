@@ -2,74 +2,50 @@
 
 <!-- bootstrap accordion and collapse navbar -->
 <section>
-    <form>
-        <div class="container text-center">
-            <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    filter recipes
-                </a>
-            </p>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    <div class="row">
-                        <ul class="nav nav-tabs col-md-3">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Type</a>
-                                <div class="dropdown-menu">
+    <form method="POST" action="{{url_for('filter_recipes') }}">
+        <div>
 
-                                    {% for category in categories %}
+            {% for category in categories %}
 
-                                    <a class="dropdown-item" href="{{url_for('filter_recipes', category_name = category.category_name) }}">{{category.category_name}}</a> 
-                                 
-                                    {% endfor %}
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-tabs col-md-3">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dietary</a>
-                                <div class="dropdown-menu">
-
-                                    {% for type in types %}
-
-                                    <a class="dropdown-item" href="{{ url_for('filter_dietary', types = type.name) }}">{{type.name}}</a> 
-                                    
-                                    {% endfor %}
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-tabs col-md-3">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Difficulty</a>
-                                <div class="dropdown-menu">
-                                    
-                                    {% for difficult in difficulties %}
-                                    
-                                    <a class="dropdown-item" href="{{ url_for('filter_difficulty', difficulty = difficult.level) }}">{{difficult.level}}</a>
-                                    
-                                    {% endfor %}
-                                    
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-tabs col-md-3">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Price</a>
-                                <div class="dropdown-menu">
-                                   
-                                   {% for price in prices %}
-                                   
-                                    <a class="dropdown-item" href="{{ url_for('filter_prices', prices = price.amount) }}">{{price.amount}}</a>
-                                    
-                                    {% endfor %}
-                                    
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="category_name" value="{{category.category_name}}">
+                <label class="form-check-label" for="exampleCheck1">{{category.category_name}}</label>
             </div>
+
+            {% endfor %}
         </div>
+        <div>
+
+            {% for type in types %}
+
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="type_name" value="{{type.name}}">
+                <label class="form-check-label" for="exampleCheck1">{{type.name}}</label>
+            </div>
+
+            {% endfor %}
+        </div>
+        <div>
+            {% for type in types %}
+
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="difficult_level" value="{{difficult.level}}">
+                <label class="form-check-label" for="exampleCheck1">{{difficult.level}}</label>
+            </div>
+
+            {% endfor %}
+        </div>
+        <div>
+            {% for price in prices %}
+
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="price_amount" value="{{price.amount}}">
+                <label class="form-check-label" for="exampleCheck1">{{price.amount}}</label>
+            </div>
+
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </section>
 
@@ -129,6 +105,4 @@
 </section>
 
 
-{% endfor %}
-
-{% endblock %}
+{% endfor %} {% endblock %}

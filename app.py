@@ -31,7 +31,7 @@ def filter():
                                 prices = mongo.db.prices.find())
     
 # filter category function        
-@app.route("/filter_recipes/<category_name>")
+@app.route("/filter_recipes", methods=['POST'])
 def filter_recipes(category_name):
     recipes = mongo.db.recipes.find({'category_name': category_name})
     return render_template("filter.html", recipes = recipes)
