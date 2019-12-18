@@ -19,7 +19,7 @@
 
                                     {% for category in categories %}
 
-                                    <a class="dropdown-item" href="{{url_for('category_name', category.category_name) }}">{{category.category_name}}</a> 
+                                    <a class="dropdown-item" href="{{url_for('filter_recipes', category_name = category.category_name) }}">{{category.category_name}}</a> 
                                  
                                     {% endfor %}
                                 </div>
@@ -32,7 +32,7 @@
 
                                     {% for type in types %}
 
-                                    <a class="dropdown-item" href="#">{{type.name}}</a> 
+                                    <a class="dropdown-item" href="{{ url_for('filter_dietary', types = type.name) }}">{{type.name}}</a> 
                                     
                                     {% endfor %}
                                 </div>
@@ -45,7 +45,7 @@
                                     
                                     {% for difficult in difficulties %}
                                     
-                                    <a class="dropdown-item" href="#">{{difficult.level}}</a>
+                                    <a class="dropdown-item" href="{{ url_for('filter_difficulty', difficulty = difficult.level) }}">{{difficult.level}}</a>
                                     
                                     {% endfor %}
                                     
@@ -59,7 +59,7 @@
                                    
                                    {% for price in prices %}
                                    
-                                    <a class="dropdown-item" href="#">{{price.amount}}</a>
+                                    <a class="dropdown-item" href="{{ url_for('filter_prices', prices = price.amount) }}">{{price.amount}}</a>
                                     
                                     {% endfor %}
                                     

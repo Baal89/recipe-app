@@ -36,7 +36,7 @@ def filter_recipes(category_name):
     recipes = mongo.db.recipes.find({'category_name': category_name})
     return render_template("filter.html", recipes = recipes)
  
-# filter difficult function  
+# filter diffic function  
 @app.route("/filter_difficulty/<difficulty>")
 def filter_difficulty(difficulty):
     difficulties = mongo.db.recipes.find({'recipe_difficulty': difficulty})
@@ -48,11 +48,11 @@ def filter_dietary(types):
     types = mongo.db.recipes.find({'recipe_dietary': types})
     return render_template("filter.html", recipes = types)
     
-# filter price function  
-@app.route("/filter_prices/<prices>")
-def filter_prices(prices):
-    prices = mongo.db.recipes.find({'recipe_price': prices})
-    return render_template("filter.html", recipes = prices)
+# filter dietary function  
+@app.route("/filter_dietary/<types>")
+def filter_dietary(types):
+    types = mongo.db.recipes.find({'recipe_dietary': types})
+    return render_template("filter.html", recipes = types)
     
    
 # search index function      

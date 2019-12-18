@@ -7,13 +7,13 @@ to try new recipes and buy the tools provided from the owner of the site, tools 
 
 ## UX 
 
-#### audience
+#### Audience
 
 This site is for all those people of love food, from a chef to a person trying to cook for the first time for their partner. The site wants 
 to help people with the passion of cooking sharing their experience and giving others idea to impress their guest or for their own pleasure.
 The best help to achieving all of these is using the cooking tools sells in the site.
 
-#### user stories
+#### User stories
 
 As any one of the users, I want to perform the following actions:
 
@@ -23,4 +23,11 @@ As any one of the users, I want to perform the following actions:
 * as a user who added a recipe: I want to correct an error or update a recipe I added, so I can update the recipe in the update recipe page.
 * as a user who does not like the recipe added: I want to delete the recipe added before as a mistake, so I can delete the recipe with the delete recipe button.
 * as a user who need to cook a recipe: I want to cook the recipe just found in the recipes page, I can check the recipe utensils needed in the shop page. 
+* as a user who need to look for a specific recipe, I can use the serch form and type the recipe I was looking for/
+* as a user who need some ideas for his dinner, I can use the filter functionality and grab the recipes for categories or for difficulty.
 
+#### Mockups
+
+
+
+## Features
