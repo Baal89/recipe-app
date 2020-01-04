@@ -41,7 +41,8 @@
 @media only screen and (max-width: 600px) {
     .navbar-light .navbar-brand {
         font-size: 30px;
-    } .navbar-light .navbar-nav .nav-link {
+    }
+    .navbar-light .navbar-nav .nav-link {
         font-size: 16px;
     }
 }
@@ -124,7 +125,8 @@
 @media only screen and (max-width: 600px) {
     .description p {
         font-size: 14px;
-    } .title {
+    }
+    .title {
         font-size: 18px;
     }
 }
@@ -170,9 +172,11 @@
 @media only screen and (max-width: 600px) {
     .cards-header {
         font-size: 18px
-    } .cards p {
+    }
+    .cards p {
         font-size: 12px;
-    } .nav-button-cards {
+    }
+    .nav-button-cards {
         font-size: 12px;
     }
 }
@@ -207,12 +211,53 @@
 @media only screen and (max-width: 600px) {
     .recipe-book-header {
         font-size: 18px;
-    } .recipe-book p {
+    }
+    .recipe-book p {
         font-size: 14px;
     }
 }
 
 /*----------------------------------------------------------------recipes.html*/
+
+.btn-link {
+    text-decoration: none !important;
+    color: black;
+    border: 1px solid #f78f1e;
+    background-color: white;
+    padding: 10px;
+}
+
+.btn-link:hover {
+    text-decoration: none !important;
+    color: white;
+    background-color: #f78f1e;
+}
+
+.filter-header {
+    font-size: 26px;
+    font-family: 'Amatic SC', cursive;
+    margin: 20px auto;
+    color: #f78f1e;
+}
+
+.nav-button {
+    border: none;
+    color: white;
+    background-color: #f78f1e;
+    padding: 15px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
+    border-radius: 4px;
+    margin: 20px auto;
+}
+
+.nav-button:hover {
+    color: black;
+}
 
 .recipe-container {
     background-image: url("../assets/img/recipe-page.jpg");
@@ -290,9 +335,10 @@
         text-align: center;
     }
     .recipe-composition,
-    .steps{
+    .steps {
         font-size: 12px;
-    } .ingredients-header {
+    }
+    .ingredients-header {
         font-size: 28px;
     }
 }
@@ -300,9 +346,11 @@
 @media only screen and (max-width: 600px) {
     .recipe-img {
         text-align: center;
-    } .recipe-details p {
+    }
+    .recipe-details p {
         font-size: 12px;
-    } .recipe-button {
+    }
+    .recipe-button {
         font-size: 14px;
     }
 }
@@ -384,15 +432,19 @@
 @media only screen and (max-width: 600px) {
     .paragraph {
         font-size: 14px;
-    } .subcontainer-header {
+    }
+    .subcontainer-header {
         font-size: 18px;
-    } .about-paragraph {
-          font-size: 14px;
-      } .about-header {
-          font-size: 18px;
-      } .about-img {
-          width:75%;
-      }
+    }
+    .about-paragraph {
+        font-size: 14px;
+    }
+    .about-header {
+        font-size: 18px;
+    }
+    .about-img {
+        width: 75%;
+    }
 }
 
 /*------------------------------------------------------------shop.html*/
@@ -459,7 +511,8 @@
     }
     .shop-header {
         text-align: center;
-    } #buy-button {
+    }
+    #buy-button {
         margin-left: 15px;
     }
 }
@@ -529,11 +582,14 @@ footer p {
 @media only screen and (max-width: 600px) {
     .navbar-brand {
         font-size: 30px;
-    } footer p {
+    }
+    footer p {
         font-size: 12px;
-    } .details-header {
+    }
+    .details-header {
         font-size: 15px;
-    } footer i {
+    }
+    footer i {
         font-size: 15px;
     }
 }

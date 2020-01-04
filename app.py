@@ -22,37 +22,32 @@ def get_recipes():
                                 difficulties = mongo.db.difficulties.find(),
                                 prices = mongo.db.prices.find())
 
-@app.route("/filter")
-def filter():
-    return render_template("filter.html", recipes = mongo.db.recipes.find().sort("category_name", -1), 
-                                categories = mongo.db.categories.find(),
-                                types = mongo.db.types.find(),
-                                difficulties = mongo.db.difficulties.find(),
-                                prices = mongo.db.prices.find())
-    
+
 # filter category function        
 @app.route("/filter_recipes", methods=['POST'])
-def filter_recipes(category_name):
-    recipes = mongo.db.recipes.find({'category_name': category_name})
+def filter_recipes():
+    print(request.form)
+    
+    # binding the data from the form
+    category = request.form.get("category_name")
+    price = request.form.get("price_amount")
+    types = request.form.get("type_name")
+    difficult = request.form.get("difficult_level")
+    
+    # creating a list comprehension for each filters fields 
+    all_categories = [category["category_name"] for category in mongo.db.categories.find()]
+    all_prices = [price["amount"] for price in mongo.db.prices.find()]
+    all_types = [type["name"] for type in mongo.db.types.find()]
+    all_difficulties = [difficult["level"] for difficult in mongo.db.difficulties.find()]
+    
+    # if nothing is checked return all the list else return the selected option
+    recipes = mongo.db.recipes.find({"category_name": category if category else{"$in": all_categories},
+                                    "recipe_price": price if price else {"$in": all_prices},
+                                    "recipe_dietary": types if types else {"$in": all_types},
+                                    "recipe_difficulty": difficult if difficult else {"$in": all_difficulties}
+    })
+    
     return render_template("filter.html", recipes = recipes)
- 
-# filter difficult function  
-@app.route("/filter_difficulty/<difficulty>")
-def filter_difficulty(difficulty):
-    difficulties = mongo.db.recipes.find({'recipe_difficulty': difficulty})
-    return render_template("filter.html", recipes = difficulties)
-    
-# filter dietary function  
-@app.route("/filter_dietary/<types>")
-def filter_dietary(types):
-    types = mongo.db.recipes.find({'recipe_dietary': types})
-    return render_template("filter.html", recipes = types)
-    
-# filter price function  
-@app.route("/filter_prices/<prices>")
-def filter_prices(prices):
-    prices = mongo.db.recipes.find({'recipe_price': prices})
-    return render_template("filter.html", recipes = prices)
     
    
 # search index function      
@@ -60,7 +55,7 @@ def filter_prices(prices):
 def search():
     query = request.form.get('query')
     recipes = mongo.db.recipes.find({'$text' : {'$search' : query} })
-    return render_template("recipes.html", recipes = recipes, type = 'searched')
+    return render_template("search.html", recipes = recipes, type = 'searched')
         
 @app.route("/add_recipe")
 def add_recipe():

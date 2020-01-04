@@ -2,51 +2,78 @@
 
 <!-- bootstrap accordion and collapse navbar -->
 <section>
-    <form method="POST" action="{{url_for('filter_recipes') }}">
-        <div>
-
-            {% for category in categories %}
-
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="category_name" value="{{category.category_name}}">
-                <label class="form-check-label" for="exampleCheck1">{{category.category_name}}</label>
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header text-center" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Filter Recipes
+        </button>
+                </h2>
             </div>
 
-            {% endfor %}
-        </div>
-        <div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="container">
+                        <form method="POST" action="{{url_for('filter_recipes') }}">
+                            <div class="row">
+                                <div class="col-md-3 col-6">
+                                    <h5 class="filter-header">categories</h5>
 
-            {% for type in types %}
+                                    {% for category in categories %}
 
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="type_name" value="{{type.name}}">
-                <label class="form-check-label" for="exampleCheck1">{{type.name}}</label>
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="category_name" value="{{category.category_name}}">
+                                        <label class="form-check-label" for="exampleCheck1">{{category.category_name}}</label>
+                                    </div>
+
+                                    {% endfor %}
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <h5 class="filter-header">dietary</h5>
+
+                                    {% for type in types %}
+
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="type_name" value="{{type.name}}">
+                                        <label class="form-check-label" for="exampleCheck1">{{type.name}}</label>
+                                    </div>
+
+                                    {% endfor %}
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <h5 class="filter-header">difficulty</h5>
+
+                                    {% for difficult in difficulties %}
+
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="difficult_level" value="{{difficult.level}}">
+                                        <label class="form-check-label" for="exampleCheck1">{{difficult.level}}</label>
+                                    </div>
+
+                                    {% endfor %}
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <h5 class="filter-header">cost</h5>
+                                    {% for price in prices %}
+
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="price_amount" value="{{price.amount}}">
+                                        <label class="form-check-label" for="exampleCheck1">{{price.amount}}</label>
+                                    </div>
+
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="nav-button">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            {% endfor %}
         </div>
-        <div>
-            {% for type in types %}
 
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="difficult_level" value="{{difficult.level}}">
-                <label class="form-check-label" for="exampleCheck1">{{difficult.level}}</label>
-            </div>
-
-            {% endfor %}
-        </div>
-        <div>
-            {% for price in prices %}
-
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="price_amount" value="{{price.amount}}">
-                <label class="form-check-label" for="exampleCheck1">{{price.amount}}</label>
-            </div>
-
-            {% endfor %}
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
 </section>
 
 {% for recipe in recipes %}
@@ -97,7 +124,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <h3 class="ingredients-header">Preparation Steps</h3>
+                <h3 class="ingredients-header">Preparation</h3>
                 <p class="steps">{{recipe.recipe_preparation_steps}}</p>
             </div>
         </div>

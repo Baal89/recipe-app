@@ -32,12 +32,20 @@ As any one of the users, I want to perform the following actions:
 
 ## Features
 
-The Pasta Factory website consist of 8 page with the following features:
+The Pasta Factory website consist of 9 page with the following features:
 
 1. base.html page:
    * the navbar - allows the user who open the site to navigate trough it.
    * the footer - let the user who want to contact the company with social media tel or fax to get in touch with them.
    
 2. index.html page:
-    * the carousel - give an interactive an immediate imput to the user of what the site does and provide.
-    * 
+    * the carousel - help the user who just jumped in the page to understand the pourpouse of the site and what the site owner does.
+    * the utensils cards - let the user who need to understand what the company promote providing a link to the catalogue as well.
+    * the cookbook - provide the user with a brief explanation of the possibility to share and look for recipes and link to the recipes page click on it.
+
+3. about.html page:
+    * the youtube video - want to help the user who never used a pasta machine how simple is it giving a positive feedback.
+    * the company history - help the user who want to know more about Pasta Factory to read the story and the skills of the company.
+
+4. recipes.html page:
+    *
