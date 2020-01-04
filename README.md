@@ -102,4 +102,27 @@ there are several new features to be implemented in the site, but considering th
 * [Flask](http://flask.palletsprojects.com/) and [Python](https://www.python.org/):
     * the projec use the Flask framework which allows us to get up and running building the website with minimal Python code.
 
+* [Google Font](https://fonts.google.com/):
+    * the project use google font to make the visual experience of the site nicer.
+
     
+## Testing
+
+## Deployment
+
+The hosting provider Heroku has been used to host the site. This because Git Hub pages only allow us to store static websites. 
+
+To deploy the site I made the following steps:
+
+1. I created a new app in Heroku with a unique name and Europe as location.
+2. I created the requirement.txt file with *sudo pip3 freeze --local > requirements.txt*.
+3. I added the requirements file to the staging area and then commit.
+4. I created a procfile with *echo web: python app.py > Procfile*
+5. I added the procfile to the staging area and then commit.
+6. I installed heroku on my workspace with *sudo snap install --classic heroku*.
+7. trough the terminal I logged in in Heroku *with heroku login --interactive*.
+8. with *heroku git:remote -a recipe-guide* I linked my git repository to Heroku.
+9. then I pushed to Heroku with *git push heroku master*.
+10. I start a web process with *heroku ps:scale web=1*.
+11. I added  the variable IP with the value 0.0.0.0 on heroku
+12. I added the variable PORT with the value 5000 oh heroku
