@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = "recipe_guide"
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
@@ -122,6 +123,7 @@ def update_recipe(recipe_id):
         "recipe_doses": request.form.get("recipe_doses"),
         "recipe_preparation_steps": request.form.get("recipe_preparation_steps"),
     })
+    
     return redirect("/get_recipes")
 
 @app.route('/delete_recipe/<recipe_id>')
