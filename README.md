@@ -42,7 +42,7 @@ The Pasta Factory website consist in the following features:
    * the search form - allow the user to search for a specific recipe or ingredient.
    
 2. index.html page:
-    * the carousel - help the user who just jumped in the page to understand the pourpouse of the site and what the site owner does.
+    * the carousel - help the user who just jumped in the page to understand the purpose of the site and what the site owner does.
     * the utensils cards - let the user who need to understand what the company is promotig, providing a link to the catalogue as well.
     * the cookbook - provide the user with a brief explanation of the possibility to share and look for recipes.
 
@@ -91,38 +91,68 @@ there are several new features to be implemented in the site, but considering th
     * the project uses Bootstrap 4 to make the site responsive
 
 * [Jquery](https://jquery.com/):
-    * as part of Bootstrap the project uses Jquery to simplify DOM manipulation
+    * as part of Bootstrap, the project uses Jquery to simplify DOM manipulation
 
 * [Popper.js](https://popper.js.org/):
     * the project uses Popper.js to create a tooltip that explain what the serch form does.
 
 * [Font Awesome](https://fontawesome.com/):
-    * the project uses Font Awesome to add icon to the site and make it more visualy more desirable.
+    * the project uses Font Awesome to add icon to the site and make it visualy more desirable.
     
 * [Flask](http://flask.palletsprojects.com/) and [Python](https://www.python.org/):
-    * the projec use the Flask framework which allows us to get up and running building the website with minimal Python code.
+    * the project use the Flask framework which allows  to get up and running building the website with minimal Python code.
+
+* [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+    * the project uses MOngo a document-oriented database program, to store the data of the website.
+
+* [PyMongo](https://api.mongodb.com/)
+    * the project uses PyMongo to allow the work between the python application and MongoDB Atlas.
 
 * [Google Font](https://fonts.google.com/):
-    * the project use google font to make the visual experience of the site nicer.
+    * the project uses google font to make the site visually nicer.
 
     
 ## Testing
+
+* ##### link and navigation:
+    1. go to the navbar and select a link to navigate throught the site.
+    2. press any button on the website and check if it redirect to the correct page.
+
+* ##### the CRUD functionality:
+    1. go in the recipes page and see if the recipes are displayed correctly.
+    2. try to digit a recipe name or an igredients in the search form and verify that it returns the right recipes.
+    3. try to digit an incorrect string in the recipe form and verify that it returns an empty page.
+    4. select a checkbox and verify that the site return the right recipes.
+    5. Try to submit the empty form in addrecipe and verify that an error message about the required fields appears.
+    6. verify that the new recipe has been added in the site.
+    7. Try to submit the empty form in editrecipe and verify that an error message about the required fields appears.
+    8. verigy that the edited recipe has been modified correctly.
+    9. press the delete button and check if the recipe has been deleted.
+
+* ##### responsiveness:
+    1. verify the site maintain the expected layout on different screen resolution.
+    2. verify the font size and the image are resposive in different screen resolution.
 
 ## Deployment
 
 The hosting provider Heroku has been used to host the site. This because Git Hub pages only allow us to store static websites. 
 
-To deploy the site I made the following steps:
+To deploy the site I have done the following steps:
 
-1. I created a new app in Heroku with a unique name and Europe as location.
-2. I created the requirement.txt file with *sudo pip3 freeze --local > requirements.txt*.
-3. I added the requirements file to the staging area and then commit.
-4. I created a procfile with *echo web: python app.py > Procfile*
-5. I added the procfile to the staging area and then commit.
-6. I installed heroku on my workspace with *sudo snap install --classic heroku*.
-7. trough the terminal I logged in in Heroku *with heroku login --interactive*.
-8. with *heroku git:remote -a recipe-guide* I linked my git repository to Heroku.
-9. then I pushed to Heroku with *git push heroku master*.
-10. I start a web process with *heroku ps:scale web=1*.
-11. I added  the variable IP with the value 0.0.0.0 on heroku
-12. I added the variable PORT with the value 5000 oh heroku
+1. create a new app in Heroku with a unique name and Europe as location.
+2. create the requirement.txt file with *sudo pip3 freeze --local > requirements.txt* in the local workspace.
+3. add the requirements.txt file to the staging area and then commit.
+4. create a procfile with *echo web: python app.py > Procfile* in the local workspace.
+5. add the procfile to the staging area and then commit.
+6. install heroku in the local workspace with *sudo snap install --classic heroku*.
+7. trough the terminal log in Heroku *with heroku login --interactive*.
+8. with *heroku git:remote -a recipe-guide*  link the git repository to Heroku.
+9. then push to Heroku with *git push heroku master*.
+10. start a web process with *heroku ps:scale web=1*.
+11. add  the variable IP with the value 0.0.0.0 on heroku settings.
+12. add the variable PORT with the value 5000 on heroku settings.
+13. add the variable MONGO_URI with its value on heroku settings.
+14. open the app.
+
+
+To run the code locally open a terminal, make sure python3 is the right iterpreter and digit *python3 app.py*.

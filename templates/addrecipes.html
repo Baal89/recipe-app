@@ -14,7 +14,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-12">
-                    <label for="exampleFormControlSelect1">Select a category</label>
+                    <label>Select a category</label>
                     <select class="form-control" id="category" name="category_name">
                     <option disabled selected>Choose a category</option>
                      {% for cat in categories %}
@@ -46,11 +46,11 @@
             <div class="row">
                 <div class="form-group col-md-6 col-12">
                     <label>Recipe ingredients</label>
-                    <textarea type="textarea" class="form-control" name="recipe_ingredients" id="recipe_ingredients" placeholder="please enter each ingredients in a new line" required></textarea>
+                    <textarea class="form-control area" name="recipe_ingredients" id="recipe_ingredients" placeholder="please enter each ingredients in a new line" required></textarea>
                 </div>
                 <div class="form-group col-md-6 col-12">
                     <label>Recipe allergens</label>
-                    <textarea type="textarea" class="form-control" name="recipe_allergens" id="recipe_allergens" placeholder="please enter each allergen in a new line" required></textarea>
+                    <textarea class="form-control area" name="recipe_allergens" id="recipe_allergens" placeholder="please enter each allergen in a new line" required></textarea>
                 </div>
             </div>
             <div class="row">
@@ -66,7 +66,7 @@
             <div class="row">
                 <div class="form-group col-12">
                     <label>Preparation steps</label>
-                    <textarea type="textarea" class="form-control" name="recipe_preparation_steps" id="recipe_preparation_steps" required></textarea>
+                    <textarea class="form-control area" name="recipe_preparation_steps" id="recipe_preparation_steps" required></textarea>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary form-button">Submit</button>

@@ -30,11 +30,13 @@
 .bg-light .btn {
     color: #f78f1e;
     border: 1px solid #f78f1e;
+    text-decoration: none
 }
 
 .bg-light .btn:hover {
     color: black;
     border: 1px solid black;
+    text-decoration: none
 }
 
 
@@ -84,10 +86,13 @@
     font-weight: bold;
     transition: color 0.2s ease-in-out;
     border-radius: 4px;
+    text-transform: lowercase;
 }
 
 .d-md-block .nav-button:hover {
     color: black;
+    border: none;
+    text-decoration: none;
 }
 
 /*-----------------------------------article description*/
@@ -167,6 +172,7 @@
 .nav-button-cards:hover {
     background-color: #f78f1e;
     color: white;
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 600px) {
@@ -225,6 +231,7 @@
     border: 1px solid #f78f1e;
     background-color: white;
     padding: 10px;
+    font-weight: bold;
 }
 
 .btn-link:hover {
@@ -316,6 +323,9 @@
 }
 
 
+.recipe-composition li {
+    margin: 10px auto;
+}
 
 /*-----------------w3schools tutorial for change the color of a ul bullet*/
 
@@ -356,6 +366,10 @@
 }
 
 /*-----------------------------------------------------addrecipe.html and editrecipe.html*/
+
+textarea {
+  height: 150px !important;
+}
 
 .form-header {
     text-align: center;
