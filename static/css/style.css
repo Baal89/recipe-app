@@ -368,7 +368,7 @@
 /*-----------------------------------------------------addrecipe.html and editrecipe.html*/
 
 textarea {
-  height: 150px !important;
+    height: 150px !important;
 }
 
 .form-header {
@@ -389,7 +389,7 @@ textarea {
 .video-header {
     font-family: 'Amatic SC', cursive;
     color: #f78f1e;
-    font-size: 60px;
+    font-size: 65px;
 }
 
 .paragraph {
@@ -441,11 +441,14 @@ textarea {
     .about-row {
         text-align: center;
     }
+    .about-paragraph {
+        text-align: left;
+    }
 }
 
 @media only screen and (max-width: 600px) {
     .paragraph {
-        font-size: 14px;
+        font-size: 16px;
     }
     .subcontainer-header {
         font-size: 18px;
@@ -465,14 +468,15 @@ textarea {
 
 .shop-header {
     padding: 45px 0;
+    margin: 25px;
+}
+
+.title {
+    font-size: 55px;
 }
 
 .utensil-page {
     margin: 60px auto;
-}
-
-.shop-header {
-    margin: 25px;
 }
 
 .img-title {
@@ -528,6 +532,8 @@ textarea {
     }
     #buy-button {
         margin-left: 15px;
+    } .title {
+        font-size: 30px;
     }
 }
 
