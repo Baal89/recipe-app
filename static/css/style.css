@@ -386,6 +386,15 @@ textarea {
 
 /*------------------------------------------------------about us.html*/
 
+.img-wrapper {
+    background-image: url("../assets/img/dine-in-dine-out-wood-background-1.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 1600px;
+    height: 300px;
+}
+
 .video-header {
     font-family: 'Amatic SC', cursive;
     color: #f78f1e;
@@ -461,6 +470,8 @@ textarea {
     }
     .about-img {
         width: 75%;
+    } .img-wrapper {
+        height: 150px;
     }
 }
 
@@ -534,7 +545,7 @@ textarea {
     }
     .utensil-header {
         font-size: 18px;
-    } 
+    }
 }
 
 /*----------------------------------------------------------------footer*/
