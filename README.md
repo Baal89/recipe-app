@@ -173,22 +173,26 @@ To deploy the site I have done the following steps:
 
 To run the code locally open a terminal, make sure python3 is the right interpreter and digit *python3 app.py*.
 
+Github repository
+Heroku deployed version
+
 ## Credits
 
 #### content
 
-* the text in the about page has been partially copied form  [i Genietti](http://www.genietti.it/en/) web page.
+* the text in the about page has been partially copied form  [i Genietti](http://www.genietti.it/) web page.
+* the recipes are copied from the site [Giallo Zafferano](https://www.giallozafferano.it/).
 
 #### media 
 
 * all the pictures used in the website have been taken from google and they are free of copyright.
 * the video in about.html has been embedded from youtube and is free to use.
-* the icons use in the recipe description in the recipe page come from the site [flaticon](https://www.flaticon.com/).
+* the icons used in the recipe page come from the site [flaticon](https://www.flaticon.com/).
 
 #### Acknowledgements
 
  * I received inspiration for this project from:
-    1. the website [i Genietti](http://www.genietti.it/en/).
+    1. the website [i Genietti](http://http://www.genietti.it/).
     2. the website [Giallo Zafferano](https://www.giallozafferano.it/).
 
 A special thanks goes to my mentor Ali Ashik and to all tutor at codeinstitute who helped me create this project.

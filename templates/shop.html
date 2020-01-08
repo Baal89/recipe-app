@@ -2,31 +2,33 @@
 
 
 <section>
-    <div class="container utensil-page">
+    <div class="container utensil-page" style="max-width: 1600px;">
         <div class="row shop-header">
             <h2 class="title col-12">Kitchen Utensil</h2>
-            <p class="paragraph col-12">A thousans and one idea to present your dishes</p>
+            <p class="paragraph col-12">A thousand and one ideas to present your dishes</p>
         </div>
-        <div class="row">
+        <div class="container embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YzJatd6I9Xc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <h3 class="utensil-header text-center">It's easier than you thought! Take a look at our product</h3>
+        <div class="row gallery">
 
             {% for utensil in utensils %}
-
-            <div class="col-md-4 col-12 utensil-gallery">
-                <h5>{{utensil.name}}</h5>
-                <figure class="gallery-item text-center">
-                    <img src="{{utensil.img}}" alt="utensil" class="image-fluid">
-                    <figcaption class="img-title">
-                        <p>{{utensil.description}}</p>
-                    </figcaption>
-                </figure>
-                <div class="row">
-                    <p class="col-6">{{utensil.disponibility}}</p>
-                    <p class="col-6">{{utensil.price}}</p>
-                </div>
-                <div class="row">
-                    <a class="nav-button-cards" id="buy-button" href="#">go to shop</a>
+            
+            <!-- bootstrap card -->
+            <div class="card col-md-6 col-lg-4 col-12 text-center utensil-gallery" style="width: 18rem;">
+                <img src="{{utensil.img}}" class="card-img-top img-fluid utensil-img" alt="kichen utensil">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{utensil.name}}</h5>
+                    <p class="card-text text">{{utensil.description}}</p>
+                    <div class="row">
+                        <p class="col-6 text">{{utensil.disponibility}}</p>
+                        <p class="col-6 text">{{utensil.price}}</p>
+                    </div>
+                    <a href="#" class="nav-button-cards" id="buy-button">Go to shop</a>
                 </div>
             </div>
+
 
             {% endfor %}
 
@@ -35,4 +37,3 @@
 </section>
 
 {% endblock %}
-  
