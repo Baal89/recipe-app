@@ -12,10 +12,12 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+#route for index.html
 @app.route("/")
 def index():
     return render_template("index.html")
 
+#route for recipes.html
 @app.route("/get_recipes")  
 def get_recipes():
     return render_template("recipes.html", recipes = mongo.db.recipes.find().sort("category_name", -1), 
@@ -49,7 +51,8 @@ def filter_recipes():
                                     "recipe_difficulty": difficult if difficult else {"$in": all_difficulties}
     })
     
-    if not recipes:
+    #return a message if no recipe are found
+    if recipes.count() == 0:
         flash("sorry no recipe found")
         return render_template("filter.html", recipes = recipes)
     
@@ -62,7 +65,8 @@ def search():
     query = request.form.get('query')
     recipes = mongo.db.recipes.find({'$text' : {'$search' : query} })
     
-    if not recipes:
+    #return a message if no recipe are found
+    if recipes.count() == 0:
         flash("sorry no recipe found")
         return render_template("search.html", recipes = recipes, type = 'searched')
         
@@ -75,7 +79,8 @@ def add_recipe():
 # Add Recipe - Insert Recipe Function
 @app.route("/insert_recipe", methods=["POST"])
 def insert_recipe():
-
+    
+    #splitlines is used to return an array in mongo
     ingredients = request.form.get("recipe_ingredients").splitlines()
     allergens = request.form.get("recipe_allergens").splitlines()
     
@@ -97,10 +102,11 @@ def insert_recipe():
     
     recipes = mongo.db.recipes
     recipes.insert_one(submission)
+    flash("your recipe has been submitted")
     return redirect(url_for("get_recipes"))
 
 
-# edit recipe - edit recipe function
+# route for editrecipe.html
 @app.route("/edit_recipe/<recipe_id>")
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id" : ObjectId(recipe_id) })
@@ -113,6 +119,7 @@ def edit_recipe(recipe_id):
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
     
+    #splitlines is used to return an array in mongo
     ingredients = request.form.get("recipe_ingredients").splitlines()
     allergens = request.form.get("recipe_allergens").splitlines()
    
@@ -134,17 +141,21 @@ def update_recipe(recipe_id):
         "recipe_preparation_steps": request.form.get("recipe_preparation_steps"),
     })
     
+    flash("the recipe has been updated")
     return redirect("/get_recipes")
 
+#delete recipe function
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
 
+#route for about.html
 @app.route('/about')
 def about():
     return render_template('about-us.html')
-    
+
+#route for shop.html    
 @app.route('/shop')
 def shop():
     return render_template('shop.html', utensils = mongo.db.utensils.find())
