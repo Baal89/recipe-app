@@ -49,7 +49,10 @@ def filter_recipes():
                                     "recipe_difficulty": difficult if difficult else {"$in": all_difficulties}
     })
     
-    flash("sorry no recipe found")
+    if not recipes:
+        flash("sorry no recipe found")
+        return render_template("filter.html", recipes = recipes)
+    
     return render_template("filter.html", recipes = recipes)
     
    
@@ -58,7 +61,11 @@ def filter_recipes():
 def search():
     query = request.form.get('query')
     recipes = mongo.db.recipes.find({'$text' : {'$search' : query} })
-    flash("sorry no recipe found")
+    
+    if not recipes:
+        flash("sorry no recipe found")
+        return render_template("search.html", recipes = recipes, type = 'searched')
+        
     return render_template("search.html", recipes = recipes, type = 'searched')
         
 @app.route("/add_recipe")
