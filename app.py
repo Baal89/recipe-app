@@ -71,7 +71,8 @@ def search():
         return render_template("search.html", recipes = recipes, type = 'searched')
         
     return render_template("search.html", recipes = recipes, type = 'searched')
-        
+
+#route for addrecipe.html        
 @app.route("/add_recipe")
 def add_recipe():
     return render_template("addrecipes.html", categories=mongo.db.categories.find())
@@ -163,6 +164,6 @@ def shop():
 if __name__=="__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),
-        debug=True)
+        debug=False)
         
     
